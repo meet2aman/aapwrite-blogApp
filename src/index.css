@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --clr-neon: hsl(359, 100%, 54%);
+}
+
+.neons {
+  align-items: center;
+  cursor: pointer;
+  font-family: "Balsamiq Sans", cursive;
+  text-decoration: none;
+  color: var(--clr-neon);
+  background-color: transparent;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  transition: all 0.5s;
+}
