@@ -29,7 +29,7 @@ const PostCard = ({ $id, title, featuredImage, content }) => {
             <Typography
               variant="body2"
               color="text.secondary"
-              className="text-ellipsis overflow-hidden .."
+              className="line-clamp-5"
             >
               {parse(content)}
             </Typography>

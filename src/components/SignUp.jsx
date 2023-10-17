@@ -27,9 +27,8 @@ const SignUp = () => {
         navigate("/");
       }
     } catch (error) {
-      console.log(error.message);
       setError(error.message);
-      toast.error("Failed to register");
+      toast.error("User Already Exist");
     }
   };
   return (
