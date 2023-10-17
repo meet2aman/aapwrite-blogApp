@@ -4,6 +4,7 @@ import { Button, Input, RTE, Select } from "../index";
 import service from "../../appwrite/services";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 export default function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
@@ -18,9 +19,9 @@ export default function PostForm({ post }) {
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
-  console.log(`post-form :: ${userData}`);
 
   const submit = async (data) => {
+    toast.success("Post Updated");
     if (post) {
       const file = data.image[0]
         ? await service.uploadFile(data.image[0])
@@ -80,14 +81,23 @@ export default function PostForm({ post }) {
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
       <div className="w-2/3 px-2">
+        <label
+          htmlFor="title"
+          className="text-white font-semibold py-2 my-2"
+          placeholder="Title :"
+        >
+          Title :
+        </label>
+
         <Input
-          label="Title :"
           placeholder="Title"
           className="mb-4"
           {...register("title", { required: true })}
         />
+        <label htmlFor="slug" className="text-white font-semibold py-2 my-2">
+          Slug :
+        </label>
         <Input
-          label="Slug :"
           placeholder="Slug"
           className="mb-4"
           {...register("slug", { required: true })}
@@ -97,16 +107,23 @@ export default function PostForm({ post }) {
             });
           }}
         />
+        <label htmlFor="content" className="text-white font-semibold py-2 my-2">
+          Content :
+        </label>
         <RTE
-          label="Content :"
           name="content"
           control={control}
           defaultValue={getValues("content")}
         />
       </div>
       <div className="w-1/3 px-2">
+        <label
+          htmlFor="featuredImage"
+          className="text-white font-semibold py-2 my-2"
+        >
+          Featured-Image :
+        </label>
         <Input
-          label="Featured Image :"
           type="file"
           className="mb-4"
           accept="image/png, image/jpg, image/jpeg, image/gif"
@@ -121,6 +138,9 @@ export default function PostForm({ post }) {
             />
           </div>
         )}
+        <label htmlFor="status" className="text-white py-2 my-2">
+          Status :
+        </label>
         <Select
           options={["active", "inactive"]}
           label="Status"

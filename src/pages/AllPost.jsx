@@ -15,7 +15,10 @@ const AllPost = () => {
       <Container>
         <div className="flex flex-wrap">
           {posts.map((post) => (
-            <div key={post.$id} className="p-2 w-1/4">
+            <div
+              key={post.$id}
+              className="p-2 w-1/4 max-md:w-full max-md:items-center max-md:ml-2"
+            >
               <PostCard {...post} />
             </div>
           ))}

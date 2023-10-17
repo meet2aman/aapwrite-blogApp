@@ -1,4 +1,4 @@
-import Footer from "./Footer/Footer";
+import Footer from "./Footer";
 import Header from "./Header/Header";
 import Container from "./container/Container";
 import LogoutBtn from "./Header/LogoutBtn";
@@ -17,6 +17,7 @@ import EditPost from "../pages/EditPost";
 import Home from "../pages/Home";
 import AuthLayout from "../components/AuthLayout";
 import Post from "../pages/Post";
+import FadeMenu from "./Menu";
 export {
   Header,
   Post,
@@ -31,6 +32,7 @@ export {
   Logo,
   AddPost,
   Select,
+  FadeMenu,
   RTE,
   Login,
   SignUp,

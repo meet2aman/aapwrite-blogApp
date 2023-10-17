@@ -1,18 +1,41 @@
-import React from "react";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 import service from "../appwrite/services";
 import { Link } from "react-router-dom";
+import parse from "html-react-parser";
 
-const PostCard = ({ $id, title, featuredImage }) => {
+const PostCard = ({ $id, title, featuredImage, content }) => {
   return (
     <Link to={`/post/${$id}`}>
-      <div className="w-full bg-gray-100 p-4 rounded-xl">
-        <div className="w-full justify center mb-4">
-          <img src={service.getFilePreview(featuredImage)} alt={title} />
-        </div>
-        <h2 className="text-center text-xl font-semibold font-nunito">
-          {title}
-        </h2>
-      </div>
+      <Card
+        sx={{ maxWidth: 350, minHeight: 350 }}
+        className="my-10 max-sm:my-4"
+      >
+        <CardActionArea className="mx-3">
+          <CardMedia
+            component="img"
+            className="object-cover h-[12rem] "
+            image={service.getFilePreview(featuredImage)}
+            alt={title}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {title}
+            </Typography>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              className="text-ellipsis overflow-hidden .."
+            >
+              {parse(content)}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
     </Link>
   );
 };

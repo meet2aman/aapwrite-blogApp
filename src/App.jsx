@@ -5,6 +5,7 @@ import authService from "./appwrite/auth";
 import { login, logout } from "./Slices/auth/authSlice";
 import { ThreeCircles } from "react-loader-spinner";
 import { Header, Footer } from "./components";
+
 import { Toaster } from "react-hot-toast";
 import { Outlet } from "react-router-dom";
 
@@ -27,8 +28,7 @@ function App() {
 
   return isloading ? (
     <>
-      <div className="w-full h-screen flex justify-center items-center align-middle flex-col gap-10 ">
-        <Toaster />
+      <div className="w-full h-screen bg-black flex justify-center items-center align-middle flex-col gap-10 ">
         <ThreeCircles
           height="100"
           width="100"
@@ -48,10 +48,11 @@ function App() {
     </>
   ) : (
     <>
-      <div className="min-h-screen flex- flex-wrap content-between ">
+      <div className="min-h-screen bg-black flex- flex-wrap content-between ">
         <div className="w-full block">
+          <Toaster position="top-center" reverseOrder={false} />
           <Header />
-          <main>
+          <main className="min-h-content">
             <Outlet />
           </main>
           <Footer />

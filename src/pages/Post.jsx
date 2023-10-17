@@ -4,6 +4,7 @@ import appwriteService from "../appwrite/services";
 import { Button, Container } from "../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 export default function Post() {
   const [post, setPost] = useState(null);
@@ -29,23 +30,24 @@ export default function Post() {
         appwriteService.deleteFile(post.featuredImage);
         navigate("/");
       }
+      toast.success("Post Deleted");
     });
   };
 
   return post ? (
     <div className="py-8">
       <Container>
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+        <div className="w-full flex justify-center mb-4 relative rounded-xl p-2 my-10">
           <img
             src={appwriteService.getFilePreview(post.featuredImage)}
             alt={post.title}
-            className="rounded-xl"
+            className="object-cover  mb-8 w-full h-[30rem]"
           />
 
           {isAuthor && (
             <div className="absolute right-6 top-6">
               <Link to={`/edit-post/${post.$id}`}>
-                <Button bgColor="bg-green-500" className="mr-3">
+                <Button bgColor="bg-green-500" className="mr-3 mb-3">
                   Edit
                 </Button>
               </Link>
@@ -56,9 +58,11 @@ export default function Post() {
           )}
         </div>
         <div className="w-full mb-6">
-          <h1 className="text-2xl font-bold">{post.title}</h1>
+          <h1 className="text-6xl font-bold text-white">{post.title}</h1>
         </div>
-        <div className="browser-css">{parse(post.content)}</div>
+        <div className="browser-css text-lg text-white tracking-wide">
+          {parse(post.content)}
+        </div>
       </Container>
     </div>
   ) : null;

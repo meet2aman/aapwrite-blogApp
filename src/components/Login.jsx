@@ -31,7 +31,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center w-full mt-10">
+    <div className="flex items-center justify-center w-full mt-10 max-md:scale-[0.8]">
       <div className="mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black-10">
         <div className="mb-2 grid justify-center items-center">
           <span className="inline-block w-full items-center max-w-[100px]">
@@ -44,7 +44,7 @@ const Login = () => {
         <p className="mt-2 text-center text-base text-black/60">
           don&apos;t have any account?&nbsp;
           <Link
-            className="font-mediium text-primary transition-all duration-200 underline hover:text-sky-500"
+            className="font-medium text-primary transition-all duration-200 underline hover:text-sky-500"
             to="/signup"
           >
             Sign Up
