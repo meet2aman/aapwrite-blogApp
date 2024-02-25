@@ -79,8 +79,8 @@ export default function PostForm({ post }) {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="w-2/3 px-2">
+    <form onSubmit={handleSubmit(submit)} className="md:flex flex-wrap">
+      <div className="md:w-2/3 px-2 pb-4">
         <label
           htmlFor="title"
           className="text-white font-semibold py-2 my-2"
@@ -116,7 +116,7 @@ export default function PostForm({ post }) {
           defaultValue={getValues("content")}
         />
       </div>
-      <div className="w-1/3 px-2">
+      <div className="md:w-1/3 px-2">
         <label
           htmlFor="featuredImage"
           className="text-white font-semibold py-2 my-2"
