@@ -13,7 +13,7 @@ const PostCard = ({ $id, title, featuredImage, content }) => {
     <Link to={`/post/${$id}`}>
       <Card
         sx={{ maxWidth: 350, minHeight: 350 }}
-        className="my-10 max-sm:my-4"
+        className="my-5 max-sm:my-4"
       >
         <CardActionArea className="mx-3">
           <CardMedia
