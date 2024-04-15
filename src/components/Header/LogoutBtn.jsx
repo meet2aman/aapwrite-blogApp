@@ -22,7 +22,7 @@ const LogoutBtn = () => {
   };
   return (
     <button
-      className="inline px-6 py-2 duration-200 neons drop-shadow[0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em] tracking-wider text-base font-semibold hover:opacity-70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40"
+      className="inline px-6 py-2 duration-200 neons !font-nunito drop-shadow[0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em] tracking-wider text-base font-semibold hover:opacity-70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40"
       onClick={logoutHandler}
     >
       Logout

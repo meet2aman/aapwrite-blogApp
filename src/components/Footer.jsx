@@ -20,7 +20,7 @@ function Footer() {
                   <span>
                     <Link
                       to="https://github.com/meet2aman"
-                      className="text-gray-500 text-md font-semibold underline hover:text-sky-500"
+                      className="text-blue-500 text-md font-semibold underline hover:text-sky-500"
                     >
                       Aman.
                     </Link>

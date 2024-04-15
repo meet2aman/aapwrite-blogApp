@@ -54,7 +54,7 @@ function Header() {
           <Container>
             <nav className="flex justify-between flex-wrap items-center align-middle">
               <Logo />
-              <FadeMenu/>
+              <FadeMenu />
             </nav>
           </Container>
         </>
